@@ -1,4 +1,14 @@
-let name;
-name = "Mr. LetsaGo";
+const btn = document.getElementById("btn");
+const txt = document.querySelector("p");
 
-alert(name);
+btn.addEventListener("click", updateBtn);
+
+function updateBtn() {
+    if (btn.textContent === "Start machine") {
+        btn.textContent = "Stop machine";
+        txt.textContent = "The machine has started!";
+    } else {
+        btn.textContent = "Start machine";
+        txt.textContent = "The machine is stopped.";
+    }
+}
