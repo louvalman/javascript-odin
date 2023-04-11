@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS function doodle: with else...if</title>
+  </head>
+
+  <body>
+    <pre>
+    <code>
+      let age = prompt("How old are you?");
+
+      function checkAge(age) {
+        if (age >= 18) {
+          return true;
+        } else {
+          return confirm("Did parents allow you?");
+        }
+      }
+  
+      if (checkAge(age)) {
+        alert("you are allowed");
+      } else {
+        alert("you are not allowed");
+      }
+    </code>
+  </pre>
+  </body>
+
+  <script>
+    let age = prompt("How old are you?");
+
+    function checkAge(age) {
+      if (age >= 18) {
+        return true;
+      } else {
+        return confirm("Did parents allow you?");
+      }
+    }
+
+    if (checkAge(age)) {
+      alert("you are allowed");
+    } else {
+      alert("you are not allowed");
+    }
+  </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS function doodle: with ternery operator</title>
+  </head>
+
+  <body>
+    <pre>
+      <code>
+        let age = prompt("How old are you?");
+
+        function checkAge(age) {
+          return age >= 18 ? true : confirm("Did parents allow you?");
+        }
+    
+        if (checkAge(age)) {
+          alert("you are allowed");
+        } else {
+          alert("you are not allowed");
+        }
+      </code>
+    </pre>
+  </body>
+
+  <script>
+    let age = prompt("How old are you?");
+
+    function checkAge(age) {
+      return age >= 18 ? true : confirm("Did parents allow you?");
+    }
+
+    if (checkAge(age)) {
+      alert("you are allowed");
+    } else {
+      alert("you are not allowed");
+    }
+  </script>
+</html>
