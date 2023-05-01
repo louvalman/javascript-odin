@@ -7,19 +7,19 @@
   <body>
     <pre>
       <code>
-      let add7 = (numadd) =>
+      let add7 = (numadd) =&gt;
         `result of add7 is ${numadd + 7}, as parameter + 7 has been evaluated`;
       console.log(add7(1));
 
   
-      let multiply = (num1, num2) =>
+      let multiply = (num1, num2) =&gt;
         `result of multiply is ${
           num1 * num2
         }, as parameter * 2 has been evaluated`;
       console.log(multiply(3, 2));
 
   
-      let capitalize = (textcap) => {
+      let capitalize = (textcap) =&gt; {
         let firstletter = textcap.slice(0, 1).toUpperCase();
         let restofstring = textcap.slice(1).toLowerCase();
         return `parameter has been transformed into: ${
@@ -29,7 +29,7 @@
       console.log(capitalize("tHaNks fOr cHeCkIng mY aSsIgNmeNts oUt"));
       
   
-      let lastLetter = (textlast) => {
+      let lastLetter = (textlast) =&gt; {
         if (typeof textlast !== "string") {
           return `Error: Input must be a string`;
         }
@@ -57,7 +57,7 @@
       let restofstring = textcap.slice(1).toLowerCase();
       return `parameter has been transformed into: ${
         firstletter + restofstring
-      }. This was done by using the slice method to find the first letter of the string, and the remainder of the string, and using the toUpperCase and toLowerCase methods`;
+      }. This was done by using the slice method to find the first letter of the string, and the remainder of the string, and using the toUpperCase and toLowerCase constructors`;
     };
     console.log(capitalize("tHaNks fOr cHeCkIng mY aSsIgNmeNts oUt"));
 
