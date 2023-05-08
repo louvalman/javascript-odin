@@ -40,7 +40,7 @@ function game() {
 
   for (let i = 1; i <= 5; i++) {
     // creates i(teration) variable, which represents a round - first round is round one - when i reaches 5 (meaning five rounds has been played) game stops running, everytime one game has been played, increment i by 1
-    console.log(`Round ${i}`); // log the round number to console so player knows which round we are at
+    console.log(`Round ${i} - chose your weapon!`); // log the round number to console so player knows which round we are at
     let playerSelection = prompt("Pick your weapon!", ""); // rounds begins with player chosing their weapon!
     const computerSelection = getComputerChoice(); // computer's weapon is defined at random by invoking the getComputerChoice function above
     const roundResult = playRound(playerSelection, computerSelection); // the result of the round is defined by the playRound function by comparing playerSelection and computerSelection parameters defined above and stored in roundResult variable
@@ -50,12 +50,12 @@ function game() {
       // calculate the winner by incrementing the player's or computer's score by looking at the winner variable defined in the playRound function, and report the results to the console
       playerScore++;
       console.log(
-        `You have ${playerScore} points, and the computer has ${computerScore} points`
+        `For humanity! You have ${playerScore} points, and the computer has ${computerScore} points`
       );
     } else if (roundResult.winner === "computer") {
       computerScore++;
       console.log(
-        `You have ${playerScore} points, and the computer has ${computerScore} points`
+        `Damn machines! You have ${playerScore} points, and the computer has ${computerScore} points`
       );
     } else if (roundResult.winner === null) {
       console.log(
@@ -68,7 +68,7 @@ function game() {
     }
 
     if (i === 4 && computerScore === 2 && playerScore === 0) {
-      // if the score is 2-0 in round 4, end the game (i = 5) and declare winner in below if statement - DOESN'T WORK
+      // if the score is 2-0 after round 4, end the game (i = 5) and declare winner in below if statement - DOESN'T WORK
       i = 5;
     } else if (i === 4 && playerScore === 2 && computerScore == 0) {
       i = 5;
