@@ -3,6 +3,6 @@ let tellFortune = (numberChildren, partnerName, geoLocation, jobTitle) => {
   console.log(future);
 };
 
-tellFortune(3, "Lazlo", "Bulgaria", "Thrashbro");
-tellFortune(1, "Birgitte", "Camden", "DJ");
-tellFortune(0, "Bambine", "Firenze", "Babysitter");
+tellFortune(3, 'Lazlo', 'Bulgaria', 'thrashbro');
+tellFortune(1, 'Birgitte', 'Camden', 'DJ');
+tellFortune(0, 'Bambine', 'Firenze', 'babysitter');
