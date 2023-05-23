@@ -9,10 +9,13 @@
   <body>
     <script>
       const cars = ['Saab', 'Volvo', 'BMW']; // Array basic syntax
-      cars[0] = 'Opel'; // Changes first car in array to Opel
-
+      const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
       const person = { firstName: 'John', lastName: 'Dyr', age: 30 }; // Object basic syntax
+
+      cars[0] = 'Opel'; // Changes first car in array to Opel
       person.firstName = 'Louis'; // Changes first attribute in object to Louis
+      const filtered = cats.filter((cat) => cat.startsWith('L')); // how to filter an array with an arrow function that returns true if an item in array starts with L
+      console.log(filtered);
     </script>
   </body>
 </html>
