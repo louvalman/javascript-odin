@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="admitted"></p>
+    <p class="refused"></p>
+    <script>
+      const admitted = document.querySelector('.admitted');
+      const refused = document.querySelector('.refused');
+      admitted.textContent = 'Admit: ';
+      refused.textContent = 'Refuse: ';
+
+      const people = [
+        'Chris',
+        'Anne',
+        'Colin',
+        'Terri',
+        'Phil',
+        'Lola',
+        'Sam',
+        'Kay',
+        'Bruce',
+      ];
+
+      // should have probably just used a for...of loop here, but no biggie
+      for (i = 0; i < people.length; i++) {
+        if (people[i] === 'Phil' || people[i] === 'Lola') {
+          refused.textContent += `${people[i]}, `;
+        } else {
+          admitted.textContent += `${people[i]}, `;
+        }
+      }
+
+      // identify the substrings (from 0 to second to last char) that we want, and concatenate it with a . - SO PRETTY
+      refused.textContent =
+        refused.textContent.slice(0, refused.textContent.length - 2) + '.';
+      admitted.textContent =
+        admitted.textContent.slice(0, admitted.textContent.length - 2) + '.';
+    </script>
+  </body>
+</html>
