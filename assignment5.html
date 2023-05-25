@@ -38,13 +38,13 @@
     // Add your code here
     for (let i = 0; i < phonebook.length; i++) {
       if (phonebook[i].name === name) {
-        postname =
+        postPerson =
           `Name identified: ` +
           phonebook[i].name +
           `. Phonenumber is: ` +
           phonebook[i].number +
           `. Aborting search.`;
-        para.textContent += `${postname}`;
+        para.textContent += `${postPerson}`;
         break;
       }
       console.log(i); // to demonstrate that loop stops after loop reaches name
