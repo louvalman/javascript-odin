@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Loops Javascript.info task 3: Create for loop that loops from 0-10 and
+      only posts even numbers
+    </title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      // ready for next exercise
+      let counter;
+      for (;;) {
+        counter = prompt(
+          'Type a number higher than 100 to stop the loop!',
+          'Type number here'
+        );
+        if (counter === null) {
+          alert(`Prompt was cancelled - aborting mission`);
+          break;
+        } else if (counter >= 100) {
+          alert(`${counter} was entered! You're a genius.`);
+          break;
+        } else {
+          continue;
+        }
+      }
+    </script>
+  </body>
+</html>

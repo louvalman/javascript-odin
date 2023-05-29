@@ -5,20 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Loops Javascript.info task 1: Create for loop that loops from 0-10 and
-      only posts even numbers
+      Loops Javascript.info task 2: Rewrite for loop to while loop (count from
+      1-3 alert!)
     </title>
   </head>
   <body>
-    <div></div>
     <script>
-      const output = document.querySelector('div');
-      const para = document.createElement('p');
-      output.appendChild(para);
+      //   for (let i = 0; i < 3; i++) {
+      //     alert(`number ${i}!`);
+      //   }
 
-      // ready for next exercise
-
-      para.textContent = para.textContent.slice(0, -2) + '.';
+      i = 0;
+      while (i < 3) {
+        alert(`number ${i}!`);
+        i++;
+      }
     </script>
   </body>
 </html>
