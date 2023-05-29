@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Loops Javascript.info task 1: Create for loop that loops from 0-10 and
+      only posts even numbers
+    </title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const output = document.querySelector('div');
+      const para = document.createElement('p');
+      output.appendChild(para);
+
+      for (let i = 2; i <= 10; i++) {
+        if (i % 2 == 0) {
+          para.textContent += `${i}, `;
+        }
+      }
+
+      para.textContent = para.textContent.slice(0, -2) + '.';
+      //   different implementation, where we first check for uneven numbers, and continue to next iteration, or, we post the number
+      //   const output = document.querySelector('div');
+      //   const para = document.createElement('p');
+      //   output.appendChild(para);
+
+      //   for (let i = 2; i <= 10; i++) {
+      //     if (i % 2 !== 0) {
+      //       continue;
+      //     } else {
+      //       para.textContent += `${i}, `;
+      //     }
+      //   }
+
+      //   para.textContent = para.textContent.slice(0, -2) + '.';
+    </script>
+  </body>
+</html>
