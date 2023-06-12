@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>JS doodle with arrays and objects - basic syntax</title>
+    <title>JS doodle #9 - DOM</title>
   </head>
-
   <body>
+    <div id="container"></div>
     <script>
-      const cars = ['Saab', 'Volvo', 'BMW']; // Array basic syntax
-      cars[0] = 'Opel'; // Changes first car in array to Opel
+      const container = document.querySelector('#container');
 
-      const person = { firstName: 'John', lastName: 'Dyr', age: 30 }; // Object basic syntax
-      person.firstName = 'Louis'; // Changes first attribute in object to Louis
+      const content = document.createElement('div');
+      container.appendChild(content);
+
+      content.classList.add('content');
+      content.textContent = 'This is the glorious text-content!';
     </script>
   </body>
 </html>
