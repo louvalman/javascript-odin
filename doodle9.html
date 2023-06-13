@@ -10,11 +10,34 @@
     <script>
       const container = document.querySelector('#container');
 
-      const content = document.createElement('div');
-      container.appendChild(content);
+      const para1 = document.createElement('p');
+      container.appendChild(para1);
+      para1.classList.add('parastyle');
+      para1.style.color = 'red';
+      para1.textContent = "Hey, I'm red!";
 
-      content.classList.add('content');
-      content.textContent = 'This is the glorious text-content!';
+      const headerthree = document.createElement('h3');
+      container.appendChild(headerthree);
+      headerthree.style.color = 'blue';
+      headerthree.textContent = "I'm a blue H3!";
+
+      const contenttest = document.createElement('div');
+      container.appendChild(contenttest);
+      contenttest.style.borderStyle = 'solid';
+      contenttest.style.backgroundColor = 'pink';
+
+      const h1indiv = document.createElement('h1');
+      contenttest.appendChild(h1indiv);
+      h1indiv.textContent = "I'm in a div! HOLY SHIET!";
+
+      const para2 = document.createElement('p');
+      contenttest.appendChild(para2);
+      para2.textContent = 'Me too!';
+
+      const contentexample = document.createElement('div');
+      container.appendChild(contentexample);
+      contentexample.classList.add('content');
+      contentexample.textContent = 'This is the glorious text-content!';
     </script>
   </body>
 </html>
