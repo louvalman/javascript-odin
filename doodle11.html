@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doodle #11 - encodeString with indexOf and lastIndexOf</title>
+  </head>
+  <body>
+    <script>
+      function encodeString(string) {
+        let result = [];
+        for (let i = 0; i < string.length; i++) {
+          if (string.indexOf(string[i]) === string.lastIndexOf(string[i])) {
+            result.push('(');
+          } else {
+            result.push(')');
+          }
+        }
+        return result.join('');
+      }
+      console.log(encodeString('recede'));
+    </script>
+  </body>
+</html>
