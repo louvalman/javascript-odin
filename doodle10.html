@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Doodle #10 - encodeString - first loop counts how many times a letter is
+      present in string in an object, second loop pushes ( or ) to new array
+      based on count.
+    </title>
+  </head>
+  <body>
+    <script>
+      function encodeString(string) {
+        let result = [];
+        let charCount = {};
+
+        for (let i = 0; i < string.length; i++) {
+          const char = string[i].toLowerCase();
+          charCount[char] = (charCount[char] || 0) + 1; // checks if the count exists. If it does, it returns the current count; otherwise, it returns 0
+        }
+
+        for (let i = 0; i < string.length; i++) {
+          const char = string[i].toLowerCase();
+          if (charCount[char] === 1) {
+            result.push('(');
+          } else {
+            result.push(')');
+          }
+        }
+        return result.join('');
+      }
+
+      console.log(encodeString('recede'));
+    </script>
+  </body>
+</html>
