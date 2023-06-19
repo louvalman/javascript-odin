@@ -33,6 +33,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let score = document.querySelector('.score');
+let playerCompScore = document.querySelector('.playerCompScore');
 let playerScore = 0;
 let computerScore = 0;
 let tieCounter = 0;
@@ -56,35 +57,40 @@ buttons.forEach((button) => {
     if (roundResult.winner === 'player') {
       // calculate the winner by incrementing the player's or computer's score by looking at the winner variable defined in the playRound function
       playerScore++;
-      roundStatus.textContent = `For humanity! You have ${playerScore} points, and the computer has ${computerScore} points`;
+      roundStatus.textContent = `For humanity! You win the round with ${playerSelection} against ${computerSelection}.`;
     } else if (roundResult.winner === 'computer') {
       computerScore++;
-      roundStatus.textContent = `Damn machines! You have ${playerScore} points, and the computer has ${computerScore} points`;
+      roundStatus.textContent = `Damn machines! You lost the round with ${playerSelection} against ${computerSelection}.`;
     } else if (roundResult.winner === null) {
       tieCounter++;
-      roundStatus.textContent = `It's a tie. You still have ${playerScore} points, and the computer still has ${computerScore} points`;
+      roundStatus.textContent = `It's a tie. Both you and the machines picked ${playerSelection}.`;
     }
 
     let roundScore = playerScore + computerScore + tieCounter;
 
     roundCount.textContent = `Round number: ${roundScore}`;
-    score.appendChild(roundCount);
+    roundCount.classList.add('roundNumber');
+    playerCompScore.appendChild(roundCount);
 
     score.appendChild(roundStatus);
 
-    playerResult.textContent = 'Player: ' + playerScore;
-    score.appendChild(playerResult);
+    playerResult.textContent = 'Your score: ' + playerScore;
+    playerCompScore.appendChild(playerResult);
 
-    computerResult.textContent = 'Computer: ' + computerScore;
-    score.appendChild(computerResult);
+    computerResult.textContent = 'Computer score: ' + computerScore;
+    playerCompScore.appendChild(computerResult);
 
     const endGame = () => {
       if (computerScore > playerScore) {
-        gameResult.textContent = 'GAME OVER! YOU LOSE!!!';
+        gameResult.textContent =
+          'Oh no, the invasion has begun. Humanity is lost.';
+        gameResult.style.color = 'red';
       } else if (playerScore > computerScore) {
-        gameResult.textContent = 'CONGRATURLATIONS! YOU WIN!!!';
+        gameResult.textContent = 'You did it! Humanity is saved!';
+        gameResult.style.color = 'green';
       } else if (playerScore === computerScore) {
-        gameResult.textContent = 'A TIE! PLAY AGAIN TO FIND A WINNER!';
+        gameResult.textContent =
+          "It's a tie! Not the kind you tie around your neck.";
       }
 
       score.appendChild(gameResult);
@@ -120,10 +126,10 @@ const newGame = () => {
     button.removeAttribute('disabled', '');
   });
   console.log('working');
-  score.removeChild(roundCount);
+  playerCompScore.removeChild(roundCount);
   score.removeChild(roundStatus);
-  score.removeChild(playerResult);
-  score.removeChild(computerResult);
+  playerCompScore.removeChild(playerResult);
+  playerCompScore.removeChild(computerResult);
   score.removeChild(playAgain);
   gameResult.textContent = '';
 };

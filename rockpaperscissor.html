@@ -6,13 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors (TOP 78%)</title>
     <script defer src="/rockpaperscissor.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');
+      html {
+        font-family: Inter;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h3 {
+        font-weight: 300;
+      }
+
+      button {
+        font-family: Inter;
+        font-weight: bold;
+        color: #1e1e1e;
+        background-color: transparent;
+        border: solid 1px;
+        border-radius: 8px;
+        padding: 8px 14px;
+        transition: 0.2s;
+        margin: 0px 4px;
+        min-width: 88px;
+      }
+
+      button:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+
+      button:disabled {
+        background-color: lightgray;
+        color: lightslategray;
+        box-shadow: none;
+      }
+
+      button:disabled:hover {
+        background-color: lightgray;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 60%;
+      }
+
+      .score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .selection {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .roundNumber {
+        font-weight: bold;
+      }
+
+      .centered {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissors</button>
-    <div class="score"></div>
+    <div class="container">
+      <h1>The fight of your life is here</h1>
+      <h3 class="centered">
+        The machine invasion is imminent... The only way to survive is for
+        humanity to fight back. Chose your weapon wisely, or the invasion will
+        succeed. Good luck!
+      </h3>
+      <div class="selection">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissors</button>
+      </div>
+      <div class="score">
+        <div class="playerCompScore centered"></div>
+      </div>
+    </div>
   </body>
   <script></script>
 </html>
