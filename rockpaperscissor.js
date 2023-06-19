@@ -11,8 +11,12 @@ let getComputerChoice = () => {
   }
 };
 
+let playerScore = 0;
+let computerScore = 0;
+
+const score = document.querySelector('.score');
+
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase(); // makes sure that user can input either lowercase
   if (playerSelection === 'rock' && computerSelection === 'paper') {
     return { result: 'You lose! Paper beats Rock.', winner: 'computer' };
   } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
@@ -33,6 +37,17 @@ function playRound(playerSelection, computerSelection) {
     return { result: 'It is a tie!', winner: null };
   }
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const playerSelection = e.target.id;
+    const computerSelection = getComputerChoice();
+
+    const roundResult = playRound(playerSelection, computerSelection);
+    console.log(roundResult.winner);
+  });
+});
 
 function game() {
   // invoke game function to start a game, can be done anytime
