@@ -41,7 +41,8 @@ let roundStatus = document.createElement('p');
 let playerResult = document.createElement('p');
 let computerResult = document.createElement('p');
 let roundCount = document.createElement('p');
-let game;
+let gameResult = document.createElement('h2');
+let playAgain = document.createElement('button');
 
 const buttons = document.querySelectorAll('button');
 
@@ -64,27 +65,6 @@ buttons.forEach((button) => {
       roundStatus.textContent = `It's a tie. You still have ${playerScore} points, and the computer still has ${computerScore} points`;
     }
 
-    const endGame = () => {
-      if (computerScore > playerScore) {
-        console.log('GAME OVER! YOU LOSE!!!'); // FIX LOGS
-      } else if (playerScore > computerScore) {
-        console.log('CONGRATURLATIONS! YOU WIN!!!');
-      } else if (playerScore === computerScore) {
-        console.log('A TIE! PLAY AGAIN TO FIND A WINNER!');
-      }
-    };
-
-    if (
-      // end game if:
-      playerScore + computerScore + tieCounter === 5 || // if five rounds are played
-      (playerScore === 3 && computerScore === 0 && tieCounter === 1) || // if player/computer reaches a 3-0 score (in 4 rounds)
-      (computerScore === 3 && playerScore === 0 && tieCounter === 1) ||
-      (playerScore === 2 && computerScore === 0 && tieCounter === 2) || // if a 2-0 score is reached after 4 rounds
-      (computerScore === 2 && playerScore === 0 && tieCounter === 2)
-    ) {
-      endGame();
-    }
-
     let roundScore = playerScore + computerScore + tieCounter;
 
     roundCount.textContent = `Round number: ${roundScore}`;
@@ -97,8 +77,58 @@ buttons.forEach((button) => {
 
     computerResult.textContent = 'Computer: ' + computerScore;
     score.appendChild(computerResult);
+
+    const endGame = () => {
+      if (computerScore > playerScore) {
+        gameResult.textContent = 'GAME OVER! YOU LOSE!!!';
+      } else if (playerScore > computerScore) {
+        gameResult.textContent = 'CONGRATURLATIONS! YOU WIN!!!';
+      } else if (playerScore === computerScore) {
+        gameResult.textContent = 'A TIE! PLAY AGAIN TO FIND A WINNER!';
+      }
+
+      score.appendChild(gameResult);
+
+      score.append(playAgain);
+      playAgain.textContent = 'Play again';
+
+      buttons.forEach((button) => {
+        button.setAttribute('disabled', '');
+      });
+    };
+
+    if (
+      // end game if:
+      playerScore + computerScore + tieCounter === 5 || // if five rounds are played
+      (playerScore === 3 && computerScore === 0 && tieCounter === 1) || // if player/computer reaches a 3-0 score (in 4 rounds)
+      (computerScore === 3 && playerScore === 0 && tieCounter === 1) ||
+      (playerScore === 2 && computerScore === 0 && tieCounter === 2) || // if a 2-0 score is reached after 4 rounds
+      (computerScore === 2 && playerScore === 0 && tieCounter === 2)
+    ) {
+      endGame();
+    }
   });
 });
+
+const newGame = () => {
+  // reset the scoreboard and all counters
+  playerScore = 0;
+  computerScore = 0;
+  tieCounter = 0;
+  roundScore = 0;
+  buttons.forEach((button) => {
+    button.removeAttribute('disabled', '');
+  });
+  console.log('working');
+  score.removeChild(roundCount);
+  score.removeChild(roundStatus);
+  score.removeChild(playerResult);
+  score.removeChild(computerResult);
+  score.removeChild(playAgain);
+  gameResult.textContent = '';
+};
+
+playAgain.addEventListener('click', newGame);
 
 /* function game() {
   // invoke game function to start a game, can be done anytime
