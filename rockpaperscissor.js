@@ -1,8 +1,7 @@
 let getComputerChoice = () => {
+  // defines a variable to store a random number between 1-100 that defines comp choice 33% chance for r/p/s
   let randomNumber = Math.floor(Math.random() * 100) + 1;
-  // defines a variable to store a random number between 1-100
   if (randomNumber <= 33) {
-    // defines computerChoice with 33% chance for each choice
     return 'rock';
   } else if (randomNumber <= 66) {
     return 'paper';
@@ -10,11 +9,6 @@ let getComputerChoice = () => {
     return 'scissor';
   }
 };
-
-let playerScore = 0;
-let computerScore = 0;
-
-const score = document.querySelector('.score');
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === 'rock' && computerSelection === 'paper') {
@@ -38,18 +32,68 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+let score = document.querySelector('.score');
+let playerScore = 0;
+let computerScore = 0;
+let tieCounter = 0;
+
+let gameResult = document.createElement('p');
+let playerResult = document.createElement('p');
+let computerResult = document.createElement('p');
+
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
     const playerSelection = e.target.id;
     const computerSelection = getComputerChoice();
 
     const roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult.winner);
+
+    if (roundResult.winner === 'player') {
+      // calculate the winner by incrementing the player's or computer's score by looking at the winner variable defined in the playRound function
+      playerScore++;
+      gameResult.textContent = `For humanity! You have ${playerScore} points, and the computer has ${computerScore} points`;
+    } else if (roundResult.winner === 'computer') {
+      computerScore++;
+      gameResult.textContent = `Damn machines! You have ${playerScore} points, and the computer has ${computerScore} points`;
+    } else if (roundResult.winner === null) {
+      tieCounter++;
+      gameResult.textContent = `It's a tie. You still have ${playerScore} points, and the computer still has ${computerScore} points`;
+    }
+
+    const endGame = () => {
+      if (computerScore > playerScore) {
+        console.log('GAME OVER! YOU LOSE!!!'); // FIX LOGS
+      } else if (playerScore > computerScore) {
+        console.log('CONGRATURLATIONS! YOU WIN!!!');
+      } else if (playerScore === computerScore) {
+        console.log('A TIE! PLAY AGAIN TO FIND A WINNER!');
+      }
+    };
+
+    if (
+      // end game if:
+      playerScore + computerScore + tieCounter === 5 || // if five rounds are played
+      (playerScore === 3 && computerScore === 0 && tieCounter === 1) || // if player/computer reaches a 3-0 score (in 4 rounds)
+      (computerScore === 3 && playerScore === 0 && tieCounter === 1) ||
+      (playerScore === 2 && computerScore === 0 && tieCounter === 2) || // if a 2-0 score is reached after 4 rounds
+      (computerScore === 2 && playerScore === 0 && tieCounter === 2)
+    ) {
+      endGame();
+    }
+
+    score.appendChild(gameResult);
+
+    playerResult.textContent = 'Player: ' + playerScore;
+    score.appendChild(playerResult);
+
+    computerResult.textContent = 'Computer: ' + computerScore;
+    score.appendChild(computerResult);
   });
 });
 
-function game() {
+/* function game() {
   // invoke game function to start a game, can be done anytime
 
   let playerScore = 0;
@@ -93,7 +137,6 @@ function game() {
     }
 
     if (i >= 5 && computerScore > playerScore) {
-      // calculate and report winner (add || if player reaches three points)
       console.log('GAME OVER! YOU LOSE!!!');
     } else if (i >= 5 && playerScore > computerScore) {
       console.log('CONGRATURLATIONS! YOU WIN!!!');
@@ -101,7 +144,7 @@ function game() {
       console.log('A TIE! PLAY AGAIN TO FIND A WINNER!');
     }
   }
-}
+} */
 
 // test branch rps ui
 // test 3
