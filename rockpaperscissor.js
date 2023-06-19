@@ -37,9 +37,11 @@ let playerScore = 0;
 let computerScore = 0;
 let tieCounter = 0;
 
-let gameResult = document.createElement('p');
+let roundStatus = document.createElement('p');
 let playerResult = document.createElement('p');
 let computerResult = document.createElement('p');
+let roundCount = document.createElement('p');
+let game;
 
 const buttons = document.querySelectorAll('button');
 
@@ -53,13 +55,13 @@ buttons.forEach((button) => {
     if (roundResult.winner === 'player') {
       // calculate the winner by incrementing the player's or computer's score by looking at the winner variable defined in the playRound function
       playerScore++;
-      gameResult.textContent = `For humanity! You have ${playerScore} points, and the computer has ${computerScore} points`;
+      roundStatus.textContent = `For humanity! You have ${playerScore} points, and the computer has ${computerScore} points`;
     } else if (roundResult.winner === 'computer') {
       computerScore++;
-      gameResult.textContent = `Damn machines! You have ${playerScore} points, and the computer has ${computerScore} points`;
+      roundStatus.textContent = `Damn machines! You have ${playerScore} points, and the computer has ${computerScore} points`;
     } else if (roundResult.winner === null) {
       tieCounter++;
-      gameResult.textContent = `It's a tie. You still have ${playerScore} points, and the computer still has ${computerScore} points`;
+      roundStatus.textContent = `It's a tie. You still have ${playerScore} points, and the computer still has ${computerScore} points`;
     }
 
     const endGame = () => {
@@ -83,7 +85,12 @@ buttons.forEach((button) => {
       endGame();
     }
 
-    score.appendChild(gameResult);
+    let roundScore = playerScore + computerScore + tieCounter;
+
+    roundCount.textContent = `Round number: ${roundScore}`;
+    score.appendChild(roundCount);
+
+    score.appendChild(roundStatus);
 
     playerResult.textContent = 'Player: ' + playerScore;
     score.appendChild(playerResult);
