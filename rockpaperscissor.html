@@ -17,20 +17,24 @@
       body {
         display: flex;
         align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        min-height: 90vh;
       }
 
       h1 {
         text-align: center;
+        color: #1e1e1e;
       }
 
       h3 {
+        margin: 0px 0px 8px 0px;
         font-weight: 300;
       }
 
       button {
         font-family: Inter;
-        font-weight: bold;
+        font-weight: regular;
+        font-size: 16px;
         color: #1e1e1e;
         background-color: transparent;
         border: solid 1px;
@@ -46,13 +50,18 @@
       }
 
       button:disabled {
-        background-color: lightgray;
+        background-color: rgb(251, 247, 247);
         color: lightslategray;
         box-shadow: none;
       }
 
       button:disabled:hover {
-        background-color: lightgray;
+        background-color: rgb(251, 247, 247);
+      }
+
+      img {
+        width: 32%;
+        margin-top: -5vmin;
       }
 
       .container {
@@ -60,7 +69,7 @@
         align-items: center;
         flex-direction: column;
         width: 60%;
-        margin-top: 20vh;
+        margin-top: -8vmin;
       }
 
       .score {
@@ -77,7 +86,7 @@
       }
 
       .roundNumber {
-        font-weight: bold;
+        font-size: 18px;
       }
 
       .centered {
@@ -94,22 +103,38 @@
       }
 
       .fade-in-animation {
-        animation: fade-in 0.5s ease-in-out;
+        animation: fade-in 0.75s ease-in-out;
       }
     </style>
   </head>
   <body>
+    <img
+      data-aos="fade-down"
+      data-aos-anchor-placement="top-center"
+      data-aos-duration="800"
+      src="assets/robot.jpg"
+      alt=""
+      id="anch" />
     <div class="container">
-      <h1 data-aos="fade-down">The fight of your life is now.</h1>
+      <h1 data-aos="fade-down">Humanity depends on you</h1>
       <h3 data-aos="fade-down" class="centered">
         The machine invasion is imminent... The only way to survive is for
         humanity to fight back. Chose your weapon wisely, or the invasion will
         succeed. Good luck!
       </h3>
       <div
+        data-aos-anchor="#anch"
         data-aos="fade-up"
         data-aos-anchor-placement="top-center"
         data-aos-duration="1000"
+        class="roundContainer">
+        <p class="roundCountPlaceholder roundNumber">Pick your weapon</p>
+      </div>
+      <div
+        data-aos-anchor="#con-anchor"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+        data-aos-duration="1200"
         class="selection">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
