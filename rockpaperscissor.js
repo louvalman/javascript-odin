@@ -1,3 +1,5 @@
+AOS.init();
+
 let getComputerChoice = () => {
   // defines a variable to store a random number between 1-100 that defines comp choice 33% chance for r/p/s
   let randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -72,13 +74,14 @@ buttons.forEach((button) => {
     roundCount.classList.add('roundNumber');
     playerCompScore.appendChild(roundCount);
 
-    score.appendChild(roundStatus);
-
     playerResult.textContent = 'Your score: ' + playerScore;
     playerCompScore.appendChild(playerResult);
 
     computerResult.textContent = 'Computer score: ' + computerScore;
     playerCompScore.appendChild(computerResult);
+
+    score.appendChild(roundStatus);
+    roundStatus.classList.add('fade-in-animation');
 
     const endGame = () => {
       if (computerScore > playerScore) {
@@ -91,9 +94,11 @@ buttons.forEach((button) => {
       } else if (playerScore === computerScore) {
         gameResult.textContent =
           "It's a tie! Not the kind you tie around your neck.";
+        gameResult.style.color = 'lightblue';
       }
 
       score.appendChild(gameResult);
+      gameResult.classList.add('fade-in-animation');
 
       score.append(playAgain);
       playAgain.textContent = 'Play again';
@@ -127,10 +132,11 @@ const newGame = () => {
   });
   console.log('working');
   playerCompScore.removeChild(roundCount);
-  score.removeChild(roundStatus);
   playerCompScore.removeChild(playerResult);
   playerCompScore.removeChild(computerResult);
+  score.removeChild(roundStatus);
   score.removeChild(playAgain);
+  score.removeChild(gameResult);
   gameResult.textContent = '';
 };
 
