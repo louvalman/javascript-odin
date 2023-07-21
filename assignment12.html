@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects Javascript.info task 2: Check object for emptiness</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const isEmpty = (obj) => {
+        for (key in obj) {
+          // if the obj is not empty, the loop with start, and return false
+          return false;
+        }
+        return true; // if the loop doesn't start, return true
+      };
+
+      //   const isEmpty = (obj) => { // using the object .keys method is easier
+      //     return Object.keys(obj).length === 0;
+      //   };
+
+      let schedule = {};
+
+      alert(isEmpty(schedule));
+
+      schedule['8:30'] = 'get up';
+
+      alert(isEmpty(schedule));
+    </script>
+  </body>
+</html>

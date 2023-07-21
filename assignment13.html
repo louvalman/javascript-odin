@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects Javascript.info task 3: Add sum of object property</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      let salaries = {
+        John: 100,
+        Ann: 160,
+        Pete: 130,
+      };
+
+      let fruits = {
+        Oranges: 10,
+        Apples: 7,
+        Kiwis: 5,
+      };
+
+      let calcSum = (obj) => {
+        let sum = 0;
+        for (let key in obj) {
+          sum += obj[key]; // if just key is written, it will concatenate the key names, not the values, which are accessed in this implementation
+        }
+        return sum;
+      };
+
+      console.log('The sum of salaries is' + ' ' + calcSum(salaries));
+      console.log('The sum of fruits is' + ' ' + calcSum(fruits));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects Javascript.info task 3: Add sum of object property</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      let menu = {
+        width: 200,
+        height: 300,
+        title: 'My menu',
+      };
+
+      console.log(menu);
+
+      const multiplyNumeric = (obj) => {
+        for (let key in obj) {
+          if (typeof obj[key] === 'number') {
+            obj[key] *= 2; // no need to use let here, as the obj already exists, just direcly assign new value
+          }
+        }
+        return obj; // remember to put return statement outside of loop, so the new full obj is returned, and not individual properties
+      };
+
+      console.log(multiplyNumeric(menu));
+    </script>
+  </body>
+</html>
