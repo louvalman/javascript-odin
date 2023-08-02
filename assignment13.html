@@ -24,7 +24,8 @@
       let calcSum = (obj) => {
         let sum = 0;
         for (let key in obj) {
-          sum += obj[key]; // if just key is written, it will concatenate the key names, not the values, which are accessed in this implementation
+          // for loop to loop through object key-value pairs
+          sum += obj[key]; // if just key  is written after sum assignment operator, it will concatenate the key names, not the values, which are accessed in this implementation
         }
         return sum;
       };
