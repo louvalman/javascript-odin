@@ -23,9 +23,16 @@
         );
       },
       introduceSelf: function () {
-        console.log(`Hi! I'm ${this.name[0]}.`);
+        console.log(
+          `Hi! I'm ${this.name[0]}. My haircolor is ${this['hair color']}` // remember to use quotes inside square brackets
+        );
       },
     };
+
+    const myDataName = 'hair color';
+    const myDataValue = 'white';
+    person[myDataName] = myDataValue;
+
     console.log(person.name); // ['Bob', 'Smith']
     console.log(person.introduceSelf());
     console.log(person.bio());
