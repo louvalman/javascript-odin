@@ -8,12 +8,15 @@
   <body>
     <p>
       <a
-        href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics">
+        href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics"
+        style="text-decoration: none; color: cornflowerblue">
         <h1>MDN Objects basics</h1>
+        <h4>check code and console</h4>
       </a>
     </p>
   </body>
   <script>
+    // declaring the object 'person'
     const person = {
       name: ['Bob', 'Smith'],
       age: 32,
@@ -29,11 +32,14 @@
       },
     };
 
+    // create new properties using variables - using square brackets, doesn't work with dot notation
     const myDataName = 'hair color';
     const myDataValue = 'white';
-    person[myDataName] = myDataValue;
+    person[myDataName] = myDataValue; // white
+    person.myDataName = myDataValue; // undefined
 
-    console.log(person.name); // ['Bob', 'Smith']
+    // test the calling of different object properties (both string properties and functions) - see the results in the console
+    console.log(person.name);
     console.log(person.introduceSelf());
     console.log(person.bio());
   </script>
