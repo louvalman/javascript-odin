@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MDN Objects basics: Constructors etc.</title>
+  </head>
+  <body>
+    <p>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics"
+        style="text-decoration: none; color: crimson">
+        <h1>MDN Objects constructors</h1>
+        <h4>check code and console</h4>
+      </a>
+    </p>
+  </body>
+  <script>
+    // WITH FUNCTION
+
+    function createPerson(name) {
+      // takes a parameter (name) to create an object
+      const obj = {}; // create empty object called obj
+      obj.name = name; // create property with key: name  with value: name
+      obj.introduceSelf = function () {
+        // create property with key: introduceSelf with a function as it's value
+        console.log(`Hi! I'm ${this.name}.`);
+      };
+      return obj; // function returns the obj if it's called
+    }
+
+    const salva = createPerson('Salva'); // by invoking the function as a stored variable, we can access the properties with obj syntax (obj.prop)
+    salva.name;
+    salva.introduceSelf();
+    // "Hi! I'm Salva."
+
+    // WITH CONSTRUCTOR
+
+    const frankie = createPerson('Frankie');
+    frankie.name;
+    frankie.introduceSelf();
+    // "Hi! I'm Frankie."
+
+    function Person(name) {
+      this.name = name;
+      this.introduceSelf = function () {
+        console.log(`Hi! I'm ${this.name}.`);
+      };
+    }
+
+    const salvie = new Person('Salvie');
+    salvie.name;
+    salvie.introduceSelf();
+    // "Hi! I'm Salvie."
+
+    const frankes = new Person('Frankes');
+    frankes.name;
+    frankes.introduceSelf();
+    // "Hi! I'm Frankes."
+
+    // CONSTRUCTOR EXAMPLE NR.2:
+
+    function Cat(name, breed, color) {
+      this.name = name;
+      this.breed = breed;
+      this.color = color;
+      this.greeting = function () {
+        console.log(`Hello, said ${this.name} the ${this.color} ${this.breed}`);
+      };
+    }
+
+    const cat = new Cat('carrie', 'bengal', 'white');
+
+    const cat2 = new Cat('bengss', 'huskat', 'orange');
+
+    cat.greeting(); // Hello, said carrie the white bengal
+    cat2.greeting(); // Hello, said bengss the orange huskat
+  </script>
+</html>
